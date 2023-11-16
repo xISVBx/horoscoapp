@@ -1,0 +1,34 @@
+package com.example.horoscapp.ui.horoscope.adapter
+
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.example.horoscapp.R
+import com.example.horoscapp.domain.model.HoroscopeInfo
+
+class HoroscopeAdapter(
+    private var horoscopeList: List<HoroscopeInfo> = emptyList(),
+    private val onItemSelected: (HoroscopeInfo) -> Unit
+) :
+    RecyclerView.Adapter<HoroscopeViewHolder>() {
+    fun updateList(list: List<HoroscopeInfo>) {
+        Log.i("Lista en adapter", list.toString())
+
+        horoscopeList = list
+        notifyDataSetChanged()
+
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HoroscopeViewHolder {
+        return HoroscopeViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.item_horoscope, parent, false)
+        )
+    }
+
+    override fun getItemCount() = horoscopeList.size
+    override fun onBindViewHolder(holder: HoroscopeViewHolder, position: Int) {
+        Log.i("pintar", horoscopeList[position].toString())
+        holder.render(horoscopeList[position], onItemSelected)
+    }
+}
