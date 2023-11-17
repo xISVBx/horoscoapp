@@ -1,5 +1,6 @@
 package com.example.horoscapp.ui.horoscope.adapter
 
+import android.util.Log
 import android.view.View
 import android.view.animation.LinearInterpolator
 import androidx.recyclerview.widget.RecyclerView
@@ -16,14 +17,15 @@ class HoroscopeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         }
     }
     fun startRotationAnimation(view:View, onItemSelected: () -> Unit){
+        Log.i("Animacion", "animo")
         view.animate().apply {
-            duration = 500
+            duration = 200
             interpolator = LinearInterpolator()
             rotationBy(360f)
-            start()
             withEndAction{
                 onItemSelected()
             }
+            start()
         }
     }
 }

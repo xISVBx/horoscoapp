@@ -1,9 +1,9 @@
-package com.example.horoscapp.data.datasource
+package com.example.horoscapp.data.provider
 
 import com.example.horoscapp.domain.model.HoroscopeInfo
 import javax.inject.Inject
 
-class LocalHoroscopeDataSource @Inject constructor() {
+class HoroscopeProvider @Inject constructor() {
     fun getHoroscopes(): List<HoroscopeInfo> {
         return listOf(
             HoroscopeInfo.Aries,

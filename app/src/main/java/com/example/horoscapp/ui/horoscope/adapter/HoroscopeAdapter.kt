@@ -28,7 +28,6 @@ class HoroscopeAdapter(
 
     override fun getItemCount() = horoscopeList.size
     override fun onBindViewHolder(holder: HoroscopeViewHolder, position: Int) {
-        Log.i("pintar", horoscopeList[position].toString())
         holder.render(horoscopeList[position], onItemSelected)
     }
 }
